@@ -1,0 +1,15 @@
+{
+    "name": "j6w/bitsi-sdk-php",
+    "authors": [
+        {
+            "name": "Justin de Leon",
+            "email": "jusmdeleon@gmail.com"
+        }
+    ],
+    "require": {
+	    "guzzlehttp/guzzle": "5.*"
+    },
+    "autoload": {
+        "J6w\\Bitsi\\": "src"
+    }
+}
