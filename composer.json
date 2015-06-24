@@ -1,15 +1,22 @@
 {
     "name": "j6w/bitsi-sdk-php",
+    "description": "A PHP Library for using the BITSI API",
     "authors": [
         {
             "name": "Justin de Leon",
             "email": "jusmdeleon@gmail.com"
+        },
+        {
+            "name": "Chris Bautista",
+            "email": "chrisbjr@gmail.com"
         }
     ],
     "require": {
-	    "guzzlehttp/guzzle": "5.*"
+        "guzzlehttp/guzzle": "5.*"
     },
     "autoload": {
-        "J6w\\Bitsi\\": "src"
+        "psr-4": {
+            "J6w\\Bitsi\\": "src"
+        }
     }
 }
