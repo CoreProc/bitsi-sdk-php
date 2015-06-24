@@ -13,7 +13,7 @@ class BitsiClient
     public function __construct($apiKey)
     {
         $this->client = new Client([
-            'base_url' => 'http://bitsi-web.dev/api/v1/',
+            'base_url' => 'http://dev.bitsi.coreproc.com/api/v1/',
             'defaults' => [
                 'headers' => ['X-Authorization' => $apiKey]
             ]
