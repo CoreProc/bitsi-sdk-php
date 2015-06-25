@@ -27,4 +27,19 @@ class BitsiClient
         return $response->json();
     }
 
+    public function trips($params)
+    {
+        $response = $this->client->get('trips', [
+            'query' => [
+                'departure_date'  => $params['departure_date'],
+                'from_station_id' => $params['from_station_id'],
+                'to_station_id'   => $params['to_station_id'],
+                'passenger_count' => $params['passenger_count'],
+                'infant_count'    => $params['infant_count'],
+            ]
+        ]);
+
+        return $response->json();
+    }
+
 }
