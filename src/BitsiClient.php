@@ -31,10 +31,11 @@ class BitsiClient
     {
         $response = $this->client->get('trips', [
             'query' => [
-                'departure_date'  => $params['departure_date'],
                 'from_station_id' => $params['from_station_id'],
                 'to_station_id'   => $params['to_station_id'],
+                'departure_date'  => $params['departure_date'],
                 'passenger_count' => $params['passenger_count'],
+                'children_count'  => $params['children_count'],
                 'infant_count'    => $params['infant_count'],
             ]
         ]);
