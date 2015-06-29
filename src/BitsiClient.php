@@ -44,6 +44,7 @@ class BitsiClient
                 'passenger_count' => $params['passenger_count'],
                 'children_count'  => $params['children_count'],
                 'infant_count'    => $params['infant_count'],
+                'is_return'       => isset($params['is_return']) ? $params['is_return'] : false,
             ]
         ]);
 
