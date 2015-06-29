@@ -27,6 +27,13 @@ class BitsiClient
         return $response->json();
     }
 
+    public function destinations($stationId)
+    {
+       $response = $this->client->get("stations/{$stationId}/to");
+
+        return $response->json();
+    }
+
     public function trips($params)
     {
         $response = $this->client->get('trips', [
