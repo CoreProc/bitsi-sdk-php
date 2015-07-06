@@ -34,9 +34,9 @@ class BitsiClient
         return $response->json();
     }
 
-    public function trip(array $params)
+    public function trip($id, array $params)
     {
-        $response = $this->client->get("trips/{$params['id']}", [
+        $response = $this->client->get("trips/{$id}", [
             'query' => [
                 'passenger_count' => $params['passenger_count'],
                 'children_count'  => $params['children_count'],
