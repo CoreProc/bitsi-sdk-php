@@ -67,4 +67,15 @@ class BitsiClient
         return $response->json();
     }
 
+    public function getProvinceStations(array $provinceIds)
+    {
+        $response = $this->client->get('provinces/stations', [
+            'query' => [
+                'id' => $provinceIds
+            ]
+        ]);
+
+        return $response->json();
+    }
+
 }
