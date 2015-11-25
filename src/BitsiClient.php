@@ -66,6 +66,28 @@ class BitsiClient
 
         return $response->json();
     }
+    
+        public function getPopularDestinationTrips(array $stationIds)
+    {
+        $response = $this->client->get('trips/destination', [
+            'query' => [
+                'id' => $stationIds
+            ]
+        ]);
+
+        return $response->json();
+    }
+
+    public function getPopularDestinationReturnTrips(array $stationIds)
+    {
+        $response = $this->client->get('trips/destination/return', [
+            'query' => [
+                'id' => $stationIds
+            ]
+        ]);
+
+        return $response->json();
+    }
 
     public function getProvinceStations(array $provinceIds)
     {
