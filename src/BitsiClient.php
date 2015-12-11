@@ -59,6 +59,7 @@ class BitsiClient
                 'adults'     => $params['adults'],
                 'children'   => $params['children'],
                 'infants'    => $params['infants'],
+                'is_return'  => $params['is_return'],
                 'type'       => $params['type']
             ]
         ]);
