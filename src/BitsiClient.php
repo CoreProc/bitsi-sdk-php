@@ -38,12 +38,11 @@ class BitsiClient
     {
         $response = $this->client->get("trips/{$id}", [
             'query' => [
-                'from_station_id' => $params['from_station_id'],
-                'to_station_id'   => $params['to_station_id'],
-                'passenger_count' => $params['passenger_count'],
-                'children_count'  => $params['children_count'],
-                'infant_count'    => $params['infant_count'],
-                'is_return'       => isset($params['is_return']) ? $params['is_return'] : false,
+                'from'       => $params['from'],
+                'to'         => $params['to'],
+                'adults'     => $params['adults'],
+                'children'   => $params['children'],
+                'infants'    => $params['infants']
             ]
         ]);
 
@@ -54,13 +53,13 @@ class BitsiClient
     {
         $response = $this->client->get('trips', [
             'query' => [
-                'from_station_id' => $params['from_station_id'],
-                'to_station_id'   => $params['to_station_id'],
-                'departure_date'  => $params['departure_date'],
-                'passenger_count' => $params['passenger_count'],
-                'children_count'  => $params['children_count'],
-                'infant_count'    => $params['infant_count'],
-                'is_return'       => isset($params['is_return']) ? $params['is_return'] : false,
+                'from'       => $params['from'],
+                'to'         => $params['to'],
+                'departDate' => $params['departDate'],
+                'adults'     => $params['adults'],
+                'children'   => $params['children'],
+                'infants'    => $params['infants'],
+                'type'       => $params['type']
             ]
         ]);
 
