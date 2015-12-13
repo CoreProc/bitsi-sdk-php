@@ -27,9 +27,13 @@ class BitsiClient
         return $response->json();
     }
 
-    public function destinations($stationId)
+    public function destinations($stationId, $isProvince)
     {
-       $response = $this->client->get("stations/{$stationId}/to");
+        $response = $this->client->get("stations/{$stationId}/to", [
+            'query' => [
+                'isProvince' => $isProvince
+            ]
+        ]);
 
         return $response->json();
     }
