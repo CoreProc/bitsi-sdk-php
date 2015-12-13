@@ -70,8 +70,8 @@ class BitsiClient
 
         return $response->json();
     }
-    
-        public function getPopularDestinationTrips(array $stationIds)
+
+    public function getPopularDestinationTrips(array $stationIds)
     {
         $response = $this->client->get('trips/destination', [
             'query' => [
