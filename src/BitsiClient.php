@@ -42,11 +42,26 @@ class BitsiClient
     {
         $response = $this->client->get("trips/{$id}", [
             'query' => [
-                'from'       => $params['from'],
-                'to'         => $params['to'],
-                'adults'     => $params['adults'],
-                'children'   => $params['children'],
-                'infants'    => $params['infants']
+                'from' => $params['from'],
+                'to' => $params['to'],
+                'adults' => $params['adults'],
+                'children' => $params['children'],
+                'infants' => $params['infants']
+            ]
+        ]);
+
+        return $response->json();
+    }
+
+    public function merchantTrip($id, array $params)
+    {
+        $response = $this->client->get("merchant/trips/{$id}", [
+            'query' => [
+                'from' => $params['from'],
+                'to' => $params['to'],
+                'adults' => $params['adults'],
+                'children' => $params['children'],
+                'infants' => $params['infants']
             ]
         ]);
 
@@ -57,14 +72,14 @@ class BitsiClient
     {
         $response = $this->client->get('trips', [
             'query' => [
-                'from'       => $params['from'],
-                'to'         => $params['to'],
+                'from' => $params['from'],
+                'to' => $params['to'],
                 'departDate' => $params['departDate'],
-                'adults'     => $params['adults'],
-                'children'   => $params['children'],
-                'infants'    => $params['infants'],
-                'is_return'  => $params['is_return'],
-                'type'       => $params['type']
+                'adults' => $params['adults'],
+                'children' => $params['children'],
+                'infants' => $params['infants'],
+                'is_return' => $params['is_return'],
+                'type' => $params['type']
             ]
         ]);
 
