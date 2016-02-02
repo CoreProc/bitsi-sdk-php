@@ -53,10 +53,11 @@ class BitsiClient
         return $response->json();
     }
 
-    public function merchantTrip($id, array $params)
+    public function merchantTrip(array $params)
     {
-        $response = $this->client->get("merchant/trips/{$id}", [
+        $response = $this->client->get("merchant/trips", [
             'query' => [
+                'trip_id' => $params['trip_id'],
                 'from' => $params['from'],
                 'to' => $params['to'],
                 'adults' => $params['adults'],
