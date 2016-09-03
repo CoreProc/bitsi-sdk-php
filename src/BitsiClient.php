@@ -1,6 +1,5 @@
 <?php
 
-
 namespace J6w\Bitsi;
 
 use GuzzleHttp\Client;
@@ -10,13 +9,17 @@ class BitsiClient
 
     protected $client;
 
-    public function __construct($apiKey, $baseUrl = null)
+    public function __construct($apiKey, $baseUrl, $options = [])
     {
+        $defaults = [
+            'headers' => ['X-Authorization' => $apiKey],
+        ];
+
+        $defaults = array_merge($defaults, $options);
+
         $this->client = new Client([
-            'base_url' => $baseUrl ?: 'http://dev.bitsi.coreproc.com/api/v1/',
-            'defaults' => [
-                'headers' => ['X-Authorization' => $apiKey]
-            ]
+            'base_url' => $baseUrl,
+            'defaults' => $defaults,
         ]);
     }
 
@@ -31,8 +34,8 @@ class BitsiClient
     {
         $response = $this->client->get("stations/{$stationId}/to", [
             'query' => [
-                'isProvince' => $isProvince
-            ]
+                'isProvince' => $isProvince,
+            ],
         ]);
 
         return $response->json();
@@ -42,12 +45,12 @@ class BitsiClient
     {
         $response = $this->client->get("trips/{$id}", [
             'query' => [
-                'from' => $params['from'],
-                'to' => $params['to'],
-                'adults' => $params['adults'],
+                'from'     => $params['from'],
+                'to'       => $params['to'],
+                'adults'   => $params['adults'],
                 'children' => $params['children'],
-                'infants' => $params['infants']
-            ]
+                'infants'  => $params['infants'],
+            ],
         ]);
 
         return $response->json();
@@ -57,13 +60,13 @@ class BitsiClient
     {
         $response = $this->client->get("merchant/trips", [
             'query' => [
-                'trip_id' => $params['trip_id'],
-                'from' => $params['from'],
-                'to' => $params['to'],
-                'adults' => $params['adults'],
+                'trip_id'  => $params['trip_id'],
+                'from'     => $params['from'],
+                'to'       => $params['to'],
+                'adults'   => $params['adults'],
                 'children' => $params['children'],
-                'infants' => $params['infants']
-            ]
+                'infants'  => $params['infants'],
+            ],
         ]);
 
         return $response->json();
@@ -73,15 +76,15 @@ class BitsiClient
     {
         $response = $this->client->get('trips', [
             'query' => [
-                'from' => $params['from'],
-                'to' => $params['to'],
+                'from'       => $params['from'],
+                'to'         => $params['to'],
                 'departDate' => $params['departDate'],
-                'adults' => $params['adults'],
-                'children' => $params['children'],
-                'infants' => $params['infants'],
-                'is_return' => $params['is_return'],
-                'type' => $params['type']
-            ]
+                'adults'     => $params['adults'],
+                'children'   => $params['children'],
+                'infants'    => $params['infants'],
+                'is_return'  => $params['is_return'],
+                'type'       => $params['type'],
+            ],
         ]);
 
         return $response->json();
@@ -91,8 +94,8 @@ class BitsiClient
     {
         $response = $this->client->get('trips/destination', [
             'query' => [
-                'id' => $stationIds
-            ]
+                'id' => $stationIds,
+            ],
         ]);
 
         return $response->json();
@@ -102,8 +105,8 @@ class BitsiClient
     {
         $response = $this->client->get('trips/destination/return', [
             'query' => [
-                'id' => $stationIds
-            ]
+                'id' => $stationIds,
+            ],
         ]);
 
         return $response->json();
@@ -113,8 +116,8 @@ class BitsiClient
     {
         $response = $this->client->get('provinces/stations', [
             'query' => [
-                'id' => $provinceIds
-            ]
+                'id' => $provinceIds,
+            ],
         ]);
 
         return $response->json();
