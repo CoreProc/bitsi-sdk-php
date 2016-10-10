@@ -16,6 +16,10 @@ class BitsiClient
             'base_url' => $baseUrl ?: 'http://dev.bitsi.coreproc.com/api/v1/',
             'defaults' => [
                 'headers' => ['X-Authorization' => $apiKey]
+            ],
+            'auth' => [
+                'username' => 'bitsi',
+                'password' => 'bitsionline123'
             ]
         ]);
     }
