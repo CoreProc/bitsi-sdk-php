@@ -13,15 +13,12 @@ class BitsiClient
     {
         $defaults = [
             'headers' => ['X-Authorization' => $apiKey],
+            'auth'    => ['bitsi', 'bitsionline123']
         ];
 
         $defaults = array_merge($defaults, $options);
 
         $this->client = new Client([
-            'auth' => [
-                'username' => 'bitsi',
-                'password' => 'bitsionline123'
-            ],
             'base_url' => $baseUrl,
             'defaults' => $defaults,
         ]);
